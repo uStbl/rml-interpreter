@@ -1,0 +1,3 @@
+let (main : int -> unit) = fun (x : int) -> println (1 + 2 + 3 + x)
+
+let (x : unit) = main 1

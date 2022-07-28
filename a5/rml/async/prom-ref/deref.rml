@@ -1,0 +1,5 @@
+
+/** [deref_async prom_ref] sends a deref message to [prom_ref], then does a 
+    [recv] on [prom_ref] to get the de-referenced value back from [prom_ref]. */
+let deref_async (prom_ref : (string * int) handle) : int promise =
+  return 0 //TODO:Unimplemented

@@ -1,0 +1,28 @@
+
+
+/** [promise_reference v parent] implements the behavior of a reference. It
+    as an argument [v], which represents the value stored in the reference, and 
+    [parent], the handle of the process that spawned it. The promise reference
+    is in an infinte recusive loop, responding to messages from the parent. If 
+    it gets an assignment message, it calls itself with the new, updated value.
+    If it gets a de-reference message, it sends its value back to the parent 
+    and calls itself with the original value. Note that in the deref case, the 
+    [new_v] value is discarded, but still needs to be provided to keep things 
+    well-typed. Similarly, when we send the value back for a deref, we have to 
+    send a string as well, but the parent process does not care about this
+    string. Also, this pattern matching is in-exhaustive, which is ok as long as
+    the message is always one of the two cases. */
+let rec promise_reference (v : int) (parent : (string * int) handle) : unit promise =
+  println "[RML]<promise_reference>: Call to promise reference.";
+  print "[RML]<promise_reference>: Parent handle is :";
+  println parent;
+  print "[RML]<promise_reference>: SELF handle is :";
+  println self;
+  print "[RML]<promise_reference>: value is :";
+  println v;
+  recv parent >>= fun ((msg, new_v): string * int) ->
+    print "[RML]<promise_reference>: Recieved message: ";
+    println msg;
+    match msg with
+    | "assign" -> promise_reference new_v parent
+    | "deref" -> send ("", v) to parent; promise_reference v parent end

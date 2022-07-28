@@ -1,0 +1,7 @@
+let double (f : (int -> int)) (x : int) : int =
+  f (f x)
+
+let (add : int -> int -> int) = fun (a : int) -> fun (b : int) ->
+  a + b
+
+let (x : unit) = println ((double (add 5)) 10)

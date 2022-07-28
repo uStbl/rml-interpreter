@@ -1,0 +1,2 @@
+"eval.ml" : package(lwt)
+true: use_menhir, thread, package(str), package(menhirLib), package(oUnit), package(lwt), package(react), package(lambda-term)

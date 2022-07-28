@@ -1,0 +1,3 @@
+let add : int -> int -> int = fun (a : int) -> fun (b : int) -> a + b
+
+let (x : unit) = println (add 1 2)

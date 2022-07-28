@@ -1,0 +1,16 @@
+### Starting build.
+# Target: finalcheck.ml.depends, tags: { package(lambda-term), package(lwt), package(menhirLib), package(oUnit), package(react), package(str), extension:ml, file:finalcheck.ml, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
+ocamlfind ocamldep -package str -package menhirLib -package oUnit -package lwt -package react -package lambda-term -modules finalcheck.ml > finalcheck.ml.depends
+# Target: authors.mli.depends, tags: { package(lambda-term), package(lwt), package(menhirLib), package(oUnit), package(react), package(str), extension:mli, file:authors.mli, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
+ocamlfind ocamldep -package str -package menhirLib -package oUnit -package lwt -package react -package lambda-term -modules authors.mli > authors.mli.depends # cached
+# Target: authors.cmi, tags: { package(lambda-term), package(lwt), package(menhirLib), package(oUnit), package(react), package(str), byte, compile, extension:mli, file:authors.mli, interf, ocaml, quiet, thread, traverse, use_menhir }
+ocamlfind ocamlc -c -thread -package str -package menhirLib -package oUnit -package lwt -package react -package lambda-term -o authors.cmi authors.mli # cached
+# Target: finalcheck.cmo, tags: { package(lambda-term), package(lwt), package(menhirLib), package(oUnit), package(react), package(str), byte, compile, extension:cmo, extension:ml, file:finalcheck.cmo, file:finalcheck.ml, implem, ocaml, quiet, thread, traverse, use_menhir }
+ocamlfind ocamlc -c -thread -package str -package menhirLib -package oUnit -package lwt -package react -package lambda-term -o finalcheck.cmo finalcheck.ml
+# Target: authors.ml.depends, tags: { package(lambda-term), package(lwt), package(menhirLib), package(oUnit), package(react), package(str), extension:ml, file:authors.ml, ocaml, ocamldep, quiet, thread, traverse, use_menhir }
+ocamlfind ocamldep -package str -package menhirLib -package oUnit -package lwt -package react -package lambda-term -modules authors.ml > authors.ml.depends # cached
+# Target: authors.cmo, tags: { package(lambda-term), package(lwt), package(menhirLib), package(oUnit), package(react), package(str), byte, compile, extension:cmo, extension:ml, file:authors.cmo, file:authors.ml, implem, ocaml, quiet, thread, traverse, use_menhir }
+ocamlfind ocamlc -c -thread -package str -package menhirLib -package oUnit -package lwt -package react -package lambda-term -o authors.cmo authors.ml # cached
+# Target: finalcheck.byte, tags: { package(lambda-term), package(lwt), package(menhirLib), package(oUnit), package(react), package(str), byte, dont_link_with, extension:byte, file:finalcheck.byte, link, ocaml, program, quiet, thread, traverse, use_menhir }
+ocamlfind ocamlc -linkpkg -thread -package str -package menhirLib -package oUnit -package lwt -package react -package lambda-term authors.cmo finalcheck.cmo -o finalcheck.byte
+# Compilation successful.

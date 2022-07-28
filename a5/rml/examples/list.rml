@@ -1,0 +1,5 @@
+let lst : int list = 3::1::1::0::[]
+let lst2 : int list = [1;2;3;4;5]
+let lst3 : unit list = []
+
+let (u : unit) = println lst; println lst2; println lst3
